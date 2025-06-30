@@ -44,23 +44,18 @@ class _MainShellState extends State<MainShell> {
     }
   }
 
-  final List<Widget> _pages = [
-    Center(child: Text('🏠 Главная')),
-    Center(child: Text('🔍 Поиск')),
-    Center(child: Text('👤 Профиль')),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
       backgroundColor: Colors.black,
-      body: SafeArea(child: widget.child),
+      body: widget.child,
+
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(left: 15, right: 15, bottom: 20),
           child: Container(
-            height: 82,
+            height: 80,
             decoration: BoxDecoration(
               color: Color(0xff1E1E1E), // фон островка
               borderRadius: BorderRadius.circular(38),
@@ -71,8 +66,10 @@ class _MainShellState extends State<MainShell> {
                 vertical: 8,
               ),
               child: GNav(
-                gap: 8,
-                backgroundColor: Colors.transparent,
+                gap: 5,
+                onTabChange: (value) {
+                  _onTap(context, value);
+                },
                 color: Colors.white,
                 activeColor: Colors.white,
 
@@ -83,7 +80,7 @@ class _MainShellState extends State<MainShell> {
                 ),
 
                 tabs: [
-                  const GButton(icon: Icons.home, text: 'Главная'),
+                  const GButton(icon: Icons.movie, text: 'Главная'),
 
                   GButton(icon: Icons.favorite, text: "Favorite"),
                   const GButton(icon: Icons.person, text: 'Профиль'),

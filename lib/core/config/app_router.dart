@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kino_rant/presentation/layout/auth_shell.dart';
 import 'package:kino_rant/presentation/layout/main_shell.dart';
-import 'package:kino_rant/presentation/screens/auth/login_screen.dart';
-import 'package:kino_rant/presentation/screens/auth/register_screen.dart';
-import 'package:kino_rant/presentation/screens/main/muvies_list.dart';
-import 'package:kino_rant/presentation/screens/main/second.dart';
+import 'package:kino_rant/presentation/features/auth/login_screen.dart';
+import 'package:kino_rant/presentation/features/auth/register_screen.dart';
+import 'package:kino_rant/presentation/features/main/muvies_list.dart';
+import 'package:kino_rant/presentation/features/main/second.dart';
 
 class AppRouter {
   final GoRouter router = GoRouter(

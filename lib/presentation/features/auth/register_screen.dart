@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kino_rant/presentation/screens/auth/widgets/auth_button.dart';
-import 'package:kino_rant/presentation/screens/auth/widgets/auth_text_field.dart';
+import 'package:kino_rant/presentation/features/auth/bloc/auth_cubit.dart';
+import 'package:kino_rant/presentation/features/auth/widgets/auth_button.dart';
+import 'package:kino_rant/presentation/features/auth/widgets/auth_text_field.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  RegisterScreen({super.key});
 
+  final userNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -24,31 +27,26 @@ class LoginScreen extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "Sign In",
+                        "Sign Up",
                         style: TextStyle(color: Colors.white, fontSize: 22),
                       ),
                     ],
                   ),
                   SizedBox(height: 15),
+                  UserNameTextField(controller: userNameController),
+                  SizedBox(height: 10),
                   EmailTextField(controller: emailController),
                   SizedBox(height: 10),
                   PasswordTextField(controller: passwordController),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Forgot password?",
-                          style: TextStyle(color: Colors.white, fontSize: 14),
-                        ),
-                      ),
-                    ],
-                  ),
+                  SizedBox(height: 10),
                   AuthButton(
-                    text: "Sing In",
+                    text: "Sing Up",
                     onPressed: () {
-                      context.go("/main");
+                      context.read<AuthCubit>().register(
+                        emailController.text,
+                        passwordController.text,
+                        userNameController.text,
+                      );
                     },
                   ),
                 ],
@@ -61,14 +59,14 @@ class LoginScreen extends StatelessWidget {
               alignment: WrapAlignment.center,
               children: [
                 const Text(
-                  "Don’t you have an account? ",
+                  "Already have an account? ",
                   style: TextStyle(color: Color(0xFF979797)),
                 ),
                 GestureDetector(
                   onTap: () {
-                    context.push('/register');
+                    context.pop();
                   },
-                  child: Text("Sign Up", style: TextStyle(color: Colors.white)),
+                  child: Text("Sign In", style: TextStyle(color: Colors.white)),
                 ),
               ],
             ),

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "754041145265",
+    "project_id": "kino-rant",
+    "storage_bucket": "kino-rant.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754041145265:android:0bcfefef6d59c24616df90",
+        "android_client_info": {
+          "package_name": "com.example.kino_rant"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJA2xDQWg6rk0FuMvWhc1zUIxO_G5_nGg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
