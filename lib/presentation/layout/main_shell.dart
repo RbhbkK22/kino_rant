@@ -33,7 +33,7 @@ class _MainShellState extends State<MainShell> {
         setState(() {
           selectedIndex = index;
         });
-        context.go("/main");
+        context.go("/profile");
         break;
       case 3:
         setState(() {
@@ -57,7 +57,7 @@ class _MainShellState extends State<MainShell> {
           child: Container(
             height: 80,
             decoration: BoxDecoration(
-              color: Color(0xff1E1E1E), // фон островка
+              color: Color.fromARGB(250, 30, 30, 30), // фон островка
               borderRadius: BorderRadius.circular(38),
             ),
             child: Padding(
@@ -80,9 +80,9 @@ class _MainShellState extends State<MainShell> {
                 ),
 
                 tabs: [
-                  const GButton(icon: Icons.movie, text: 'Главная'),
+                  const GButton(icon: Icons.movie, text: 'Фильмы'),
 
-                  GButton(icon: Icons.favorite, text: "Favorite"),
+                  GButton(icon: Icons.comment, text: "Коментарии"),
                   const GButton(icon: Icons.person, text: 'Профиль'),
                 ],
               ),

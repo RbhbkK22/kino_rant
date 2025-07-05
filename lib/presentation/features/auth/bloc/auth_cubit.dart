@@ -4,6 +4,7 @@ import 'package:kino_rant/presentation/features/auth/domain/auth_repository.dart
 
 class AuthCubit extends Cubit<AuthState> {
   final AuthRepository repository;
+  
   AuthCubit(this.repository) : super(AuthInitial()) {
     repository.authStateChanges.listen((user) {
       emit(

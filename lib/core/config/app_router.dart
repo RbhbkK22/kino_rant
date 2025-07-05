@@ -4,8 +4,9 @@ import 'package:kino_rant/presentation/layout/auth_shell.dart';
 import 'package:kino_rant/presentation/layout/main_shell.dart';
 import 'package:kino_rant/presentation/features/auth/login_screen.dart';
 import 'package:kino_rant/presentation/features/auth/register_screen.dart';
-import 'package:kino_rant/presentation/features/main/muvies_list.dart';
+import 'package:kino_rant/presentation/features/movies/presentation/screens/movies_list.dart';
 import 'package:kino_rant/presentation/features/main/second.dart';
+import 'package:kino_rant/presentation/features/main/pofile.dart';
 
 class AppRouter {
   final GoRouter router = GoRouter(
@@ -60,7 +61,7 @@ class AppRouter {
             path: '/main',
             pageBuilder: (context, state) {
               return CustomTransitionPage(
-                child: MuviesList(),
+                child: MoviesList(),
                 transitionsBuilder:
                     (context, animation, secondAnimation, child) {
                       return RotationTransition(turns: animation, child: child);
@@ -73,6 +74,18 @@ class AppRouter {
             pageBuilder: (context, state) {
               return CustomTransitionPage(
                 child: Second(),
+                transitionsBuilder:
+                    (context, animation, secondAnimation, child) {
+                      return RotationTransition(turns: animation, child: child);
+                    },
+              );
+            },
+          ),
+          GoRoute(
+            path: '/profile',
+            pageBuilder: (context, state) {
+              return CustomTransitionPage(
+                child: Profile(),
                 transitionsBuilder:
                     (context, animation, secondAnimation, child) {
                       return RotationTransition(turns: animation, child: child);
