@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kino_rant/presentation/features/comments/presintation/review_list_view.dart';
 import 'package:kino_rant/presentation/features/movies/domain/entities/movie.dart';
 import 'package:kino_rant/presentation/features/movies/widgets/poster_view.dart';
 
@@ -115,52 +116,61 @@ class _SelectedMovieState extends State<SelectedMovie> {
                         const Divider(),
                         const SizedBox(height: 8),
                         const Text(
-                          "Описание:\nWhen the UK Prime Minister and US President become the targets of a foreign adversary...",
+                          'Описание:\nФильм "Иди и смотри", снятый Элемом Климовым в 1985 году, рассказывает о зверствах нацистов во время Великой Отечественной войны на территории Белоруссии. В центре сюжета — белорусский подросток Флёра, который, присоединившись к партизанам, становится свидетелем карательной операции и переживает ужасы, превращающие его из жизнерадостного юноши в седого старика. ',
                           style: TextStyle(color: Colors.white, fontSize: 14),
                         ),
                         const Divider(),
+                        Text(
+                          'Напишите свое мнение',
+                          style: TextStyle(color: Colors.white, fontSize: 24),
+                        ),
+                        SizedBox(
+                          child: TextField(
+                            cursorColor: Color(0xFF575757),
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 150, 150, 150),
+                              fontSize: 14,
+                            ),
+                            decoration: InputDecoration(
+                              fillColor: Colors.transparent,
+                              filled: true,
+                              hintText: "Расскажите как вам фильм",
+                              hintStyle: TextStyle(
+                                color: Color(0xFF575757),
+                                fontSize: 14,
+                              ),
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 1,
+                                  color: Color(0xFF2A2A2A),
+                                ),
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 1,
+                                  color: Color(0xFF2A2A2A),
+                                ),
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 1,
+                                  color: Color(0xFF2A2A2A),
+                                ),
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Divider(),
                         Text(
                           'Отзывы',
                           style: TextStyle(color: Colors.white, fontSize: 24),
                         ),
                         const Divider(),
-                        ListView.builder(
-                          padding: EdgeInsets.all(0),
-                          physics: const NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: 10,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              margin: const EdgeInsets.symmetric(vertical: 4),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Image.network(
-                                        "https://api.dicebear.com/9.x/glass/png?seed=Felex",
-                                        height: 40,
-                                        width: 40,
-                                      ),
-                                      const SizedBox(width: 10),
-                                      Text(
-                                        "Item $index",
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Text(
-                                    'Фильм просто говнище',
-                                    style: const TextStyle(color: Colors.white),
-                                  ),
-                                  Divider(),
-                                ],
-                              ),
-                            );
-                          },
-                        ),
+                        ReviewListView(imdbId: widget.movie.imdbId),
                       ],
                     ),
                   ),

@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:kino_rant/presentation/features/auth/bloc/auth_cubit.dart';
 
 class Profile extends StatelessWidget {
+  const Profile({super.key});
+
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
