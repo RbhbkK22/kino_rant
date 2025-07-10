@@ -6,8 +6,17 @@ import 'package:kino_rant/presentation/features/movies/domain/entities/poster.da
 
 class PosterView extends StatefulWidget {
   final Movie movie;
+  final double width;
+  final double height;
+  final BorderRadius? borderRadius;
 
-  const PosterView({super.key, required this.movie});
+  const PosterView({
+    super.key,
+    required this.movie,
+    this.width = 110,
+    this.height = 160,
+    this.borderRadius,
+  });
 
   @override
   State<PosterView> createState() => _PosterViewState();
@@ -49,7 +58,7 @@ class _PosterViewState extends State<PosterView> {
     }
 
     return ClipRRect(
-      borderRadius: BorderRadius.circular(26),
+      borderRadius: widget.borderRadius ?? BorderRadius.circular(26),
       child: ColorFiltered(
         colorFilter: const ColorFilter.matrix(<double>[
           1,
@@ -75,8 +84,8 @@ class _PosterViewState extends State<PosterView> {
         ]),
         child: Image.network(
           poster!.posterUrl,
-          width: 110,
-          height: 160,
+          width: widget.width,
+          height: widget.height,
           fit: BoxFit.cover,
           loadingBuilder: (context, child, loadingProgress) {
             if (loadingProgress == null) return child;

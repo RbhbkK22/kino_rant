@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kino_rant/presentation/features/movies/domain/entities/movie.dart';
+import 'package:kino_rant/presentation/features/movies/presentation/screens/selected_movie.dart';
 import 'package:kino_rant/presentation/layout/auth_shell.dart';
 import 'package:kino_rant/presentation/layout/main_shell.dart';
 import 'package:kino_rant/presentation/features/auth/login_screen.dart';
@@ -93,8 +95,14 @@ class AppRouter {
               );
             },
           ),
+
         ],
       ),
+      GoRoute(path: '/movie', builder: (context, state) {
+        final movie = state.extra as Movie;
+        return SelectedMovie(movie: movie);
+
+      },)
     ],
   );
 }

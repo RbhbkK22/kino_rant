@@ -7,7 +7,7 @@ class PosterApiService {
   final Dio _dio = PosterApiClient().dio;
 
   Future<Poster> getPosterUrl(String imdbId) async {
-    final response = await _dio.get('/?apikey==$imdbId');
+    final response = await _dio.get('/?apikey=9670f9b8&i=$imdbId');
     if (response.statusCode == 200) {
       final Poster poster = PosterModel.fromJson(response.data);
       return poster;

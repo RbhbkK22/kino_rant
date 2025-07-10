@@ -49,7 +49,10 @@ class _MainShellState extends State<MainShell> {
     return Scaffold(
       extendBody: true,
       backgroundColor: Colors.black,
-      body: widget.child,
+      body: Padding(
+        padding: EdgeInsetsGeometry.symmetric(vertical: 50, horizontal: 10),
+        child: widget.child,
+      ),
 
       bottomNavigationBar: SafeArea(
         child: Padding(

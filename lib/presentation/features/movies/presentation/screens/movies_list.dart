@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:kino_rant/presentation/features/movies/presentation/bloc/movies_bloc.dart';
 import 'package:kino_rant/presentation/features/movies/presentation/bloc/movies_event.dart';
 import 'package:kino_rant/presentation/features/movies/presentation/bloc/movies_state.dart';
@@ -19,12 +20,10 @@ class MoviesList extends StatelessWidget {
           final movies = state.movies;
           return Center(
             child: Padding(
-              padding: EdgeInsetsGeometry.symmetric(
-                vertical: 50,
-                horizontal: 10,
-              ),
+              padding: EdgeInsetsGeometry.symmetric(),
 
               child: GridView.builder(
+                padding: EdgeInsets.zero,
                 itemCount: movies.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
@@ -34,18 +33,24 @@ class MoviesList extends StatelessWidget {
                 ),
                 itemBuilder: (context, index) {
                   final movie = movies[index];
-                  return Card(
-                    color: Colors.transparent,
-                    child: Column(
-                      children: [
-                        PosterView(movie: movie),
-                        Text(
-                          '${movie.title.toUpperCase()} (${movie.year})',
-                          style: TextStyle(color: Colors.white),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
+                  return GestureDetector(
+                    onTap: () {
+                      context.push("/movie", extra: movie);
+                    },
+                    child: Card(
+                      
+                      color: Colors.transparent,
+                      child: Column(
+                        children: [
+                          PosterView(movie: movie),
+                          Text(
+                            '${movie.title.toUpperCase()} (${movie.year})',
+                            style: TextStyle(color: Colors.white),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },

@@ -51,7 +51,15 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      theme: ThemeData(fontFamily: "Huninn"),
+      theme: ThemeData(
+        dividerColor: Colors.white,
+        fontFamily: "Huninn",
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: WidgetStatePropertyAll(Color(0xFFEB2F3D)),
+          ),
+        ),
+      ),
       routerConfig: _appRouter.router,
       debugShowCheckedModeBanner: false,
     );
