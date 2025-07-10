@@ -8,7 +8,6 @@ import 'package:kino_rant/presentation/features/comments/presintation/review_lis
 import 'package:kino_rant/presentation/features/movie_ditails/presentation/bloc/ditails_bloc.dart';
 import 'package:kino_rant/presentation/features/movie_ditails/presentation/bloc/ditails_events.dart';
 import 'package:kino_rant/presentation/features/movie_ditails/widgets/ditails.dart';
-
 import 'package:kino_rant/presentation/features/movies/domain/entities/movie.dart';
 import 'package:kino_rant/presentation/features/movies/widgets/poster_view.dart';
 
