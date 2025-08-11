@@ -10,7 +10,7 @@ class MoviesApiClient {
   MoviesApiClient._internal() {
     dio = Dio(
       BaseOptions(
-        baseUrl: 'http://10.0.2.2:3000',
+        baseUrl: 'https://api.trakt.tv',
         headers: {
           "content-type": "application/json",
           "trakt-api-version": '2',
