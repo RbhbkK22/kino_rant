@@ -15,7 +15,7 @@ import 'package:kino_rant/features/movie_ditails/presentation/bloc/ditails_bloc.
 import 'package:kino_rant/features/movies/data/movie_api_client.dart';
 import 'package:kino_rant/features/movies/data/movie_repository_impl.dart';
 import 'package:kino_rant/features/movies/presentation/bloc/movies_bloc.dart';
-// типо чтото сделал
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
