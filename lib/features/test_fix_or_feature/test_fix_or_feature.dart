@@ -3,7 +3,7 @@ class TestFixOrFeature{
   //чтото сделал
   // типо поправил код
   // супер фикс
-  // супер фикс2
+  // написал через одну строку
 
   TestFixOrFeature({required this.somfing});
 }
