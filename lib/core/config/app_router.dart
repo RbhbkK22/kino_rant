@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kino_rant/presentation/features/movie_ditails/presentation/movie_ditails.dart';
-import 'package:kino_rant/presentation/features/movies/domain/entities/movie.dart';
-import 'package:kino_rant/presentation/layout/auth_shell.dart';
-import 'package:kino_rant/presentation/layout/main_shell.dart';
-import 'package:kino_rant/presentation/features/auth/login_screen.dart';
-import 'package:kino_rant/presentation/features/auth/register_screen.dart';
-import 'package:kino_rant/presentation/features/movies/presentation/screens/movies_list.dart';
-import 'package:kino_rant/presentation/features/main/second.dart';
-import 'package:kino_rant/presentation/features/main/pofile.dart';
+import 'package:kino_rant/features/movie_ditails/presentation/movie_ditails.dart';
+import 'package:kino_rant/features/movies/domain/entities/movie.dart';
+import 'package:kino_rant/layout/auth_shell.dart';
+import 'package:kino_rant/layout/main_shell.dart';
+import 'package:kino_rant/features/auth/login_screen.dart';
+import 'package:kino_rant/features/auth/register_screen.dart';
+import 'package:kino_rant/features/movies/presentation/screens/movies_list.dart';
+import 'package:kino_rant/features/main/second.dart';
+import 'package:kino_rant/features/main/pofile.dart';
 
 class AppRouter {
   final GoRouter router = GoRouter(
